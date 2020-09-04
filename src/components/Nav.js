@@ -9,7 +9,7 @@ function Nav() {
 
   const logoStyle = {
     color: "white",
-    "text-decoration": "none",
+    textDecoration: "none",
   };
 
   return (

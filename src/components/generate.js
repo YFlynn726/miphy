@@ -1,12 +1,19 @@
-import React from "react";
+import React, { Component } from "react";
 import "../App.css";
 
-function Generate() {
-  return (
-    <div className="App">
-      <h1>Generate Component</h1>
-    </div>
-  );
-}
+export default class Generate extends Component {
+  uploadHandler = (event) => {
+    console.log(event);
+  };
 
-export default Generate;
+  render() {
+    return (
+      <main className="generate">
+        <section>
+          <h1>Generate Component</h1>
+          <input type="file" onChange={this.uploadHandler} />
+        </section>
+      </main>
+    );
+  }
+}
