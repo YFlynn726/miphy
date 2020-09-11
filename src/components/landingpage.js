@@ -4,8 +4,8 @@ import "../App.css";
 function LandingPage() {
   return (
     <div className="App">
-      <h1>Landing Page</h1>
-      <h2>Search or Generate a Meme</h2>
+      <h1>Welcome to Miphy</h1>
+      <h2>About the app and direction on how to use</h2>
     </div>
   );
 }

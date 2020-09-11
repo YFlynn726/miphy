@@ -32,7 +32,7 @@ export default class Generate extends Component {
           <label htmlFor="topText">Enter top text</label>
           <br />
           <input type="text" id="topText" />
-          <img id="target" src={this.state.selectedFile}></img>
+          <img id="target" alt="" src={this.state.selectedFile}></img>
           <br />
           <label htmlFor="bottomText">Enter bottom text</label>
           <br />
