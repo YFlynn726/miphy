@@ -17,7 +17,7 @@ export default class Search extends Component {
   }
 }
 
-function Search() {
+function search() {
   const gallery = document.querySelector(".gallery");
   const searchInput = document.querySelector(".search-input");
   const submitButton = document.querySelector(".submit-btn");
