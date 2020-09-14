@@ -1,5 +1,21 @@
-import React from "react";
-import "../App.css";
+import React, { Component } from "react";
+//import "../App.css";
+
+export default class Search extends Component {
+  render() {
+    return (
+      <div className="Search">
+        <h2>Search Meme</h2>
+        <form className="search-form">
+          <input type="text" name="search" className="search-input" />
+          <button type="submit" className="submit-btn">
+            Search
+          </button>
+        </form>
+      </div>
+    );
+  }
+}
 
 // function Search() {
 //const gallery = document.querySelector(".gallery");
@@ -36,5 +52,3 @@ import "../App.css";
 //     </div>
 //   );
 // }
-
-export default Search;

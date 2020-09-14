@@ -1,5 +1,5 @@
 import React from "react";
-import "../App.css";
+//import "./App/App.css";
 import { Link } from "react-router-dom";
 
 function Nav() {
@@ -14,7 +14,7 @@ function Nav() {
 
   return (
     <nav>
-      <Link style={logoStyle} to="/Home">
+      <Link style={logoStyle} to="/">
         <h3>Miphy</h3>
       </Link>
       <ul className="nav-links">

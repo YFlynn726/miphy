@@ -1,0 +1,16 @@
+.main-landing {
+  margin: 0 !important;
+  background-image: url("/img/header.jpg");
+  min-height: 100vh;
+  text-align: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-landing h1,
+.main-landing h2 {
+  color: white;
+}

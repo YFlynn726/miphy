@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "./App.css";
-import Nav from "./components/Nav";
-import Generate from "./components/generate";
-//import Search from "./components/search";
-import LandingPage from "./components/landingpage";
+import Nav from "../Nav/Nav";
+import Generate from "../Generate/generate";
+import Search from "../Search/search";
+import Landing from "../Landing/landing";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 class App extends Component {
@@ -42,25 +42,12 @@ class App extends Component {
           <div className="App">
             <Nav />
             <Switch>
-              <Route exact path="/Home" component={LandingPage} />
-
-              {/* <Route path="/Search" component={Search} /> */}
+              <Route exact path="/" component={Landing} />
+              <Route path="/Search" component={Search} />
               <Route path="/Generate" component={Generate} />
             </Switch>
           </div>
         </Router>
-        <div className="App">
-          <h2>Miphy</h2>
-          <form className="search-form">
-            <input type="text" name="search" className="search-input" />
-            <button type="submit" className="submit-btn">
-              Search
-            </button>
-          </form>
-          <main>
-            <div className="gallery"></div>
-          </main>
-        </div>
       </React.Fragment>
     );
   }
