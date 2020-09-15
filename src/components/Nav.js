@@ -18,9 +18,9 @@ function Nav() {
         <h3>Miphy</h3>
       </Link>
       <ul className="nav-links">
-        <Link style={navStyle} to="/Search">
+        {/* <Link style={navStyle} to="/Search">
           <li>Search</li>
-        </Link>
+        </Link> */}
         <Link style={navStyle} to="/Generate">
           <li>Generate</li>
         </Link>
