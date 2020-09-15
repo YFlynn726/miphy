@@ -1,10 +1,12 @@
 import React, { Component } from "react";
-//import "../App.css";
+import Nav from "../Nav/Nav";
+import Footer from "../Footer/footer";
 
 export default class Search extends Component {
   render() {
     return (
       <div className="Search">
+        <Nav />
         <h2>Search Meme</h2>
         <form className="search-form">
           <input type="text" name="search" className="search-input" />

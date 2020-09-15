@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Nav from "../Nav/Nav";
 import "./generate.css";
 
 export default class Generate extends Component {
@@ -19,6 +20,7 @@ export default class Generate extends Component {
   render() {
     return (
       <main className="generate">
+        <Nav />
         <section>
           <h1>Generate Component</h1>
 

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./App.css";
-import Nav from "../Nav/Nav";
 import Generate from "../Generate/generate";
 import Search from "../Search/search";
 import Landing from "../Landing/landing";
@@ -39,8 +38,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <Router>
-          <div className="App">
-            <Nav />
+          <div className="Main">
             <Switch>
               <Route exact path="/" component={Landing} />
               <Route path="/Search" component={Search} />

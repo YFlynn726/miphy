@@ -1,30 +1,20 @@
 import React from "react";
-//import "./App/App.css";
+import "./Nav.css";
 import { Link } from "react-router-dom";
 
 function Nav() {
-  const navStyle = {
-    color: "white",
-  };
-
-  const logoStyle = {
-    color: "white",
-    textDecoration: "none",
-  };
-
   return (
-    <nav>
-      <Link style={logoStyle} to="/">
-        <h3>Miphy</h3>
-      </Link>
-      <ul className="nav-links">
-        <Link style={navStyle} to="/Search">
-          <li>Search</li>
-        </Link>
-        <Link style={navStyle} to="/Generate">
-          <li>Generate</li>
-        </Link>
-      </ul>
+    <nav role="navigation" className="Nav">
+      <h1>
+        <Link to="/">Miphy </Link>
+      </h1>
+      <div className="Login">
+        <div className="Header__not-logged-in">
+          <Link to="/Search"> Search </Link>
+          <span className="Hyph"></span>
+          <Link to="/Generate"> Generate </Link>
+        </div>
+      </div>
     </nav>
   );
 }
