@@ -39,28 +39,45 @@ export default class Search extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    this.setState({
+      filteredItems: this.state.items,
+    });
     const { search } = event.target;
     console.log(search.value);
-    let filteredMemes = this.state.filteredItems.filter((item) => {
-      return item.name.toLowerCase().includes(search.value.toLowerCase());
-    });
-    console.log(filteredMemes);
-    this.setState({
-      filteredItems: filteredMemes,
-    });
+    if (search.value.length > 0) {
+      let filteredMemes = this.state.filteredItems.filter((item) => {
+        return item.name.toLowerCase().includes(search.value.toLowerCase());
+      });
+      console.log(filteredMemes);
+      this.setState({
+        filteredItems: filteredMemes,
+      });
+    }
     console.log(this.state.filteredItems);
   };
+
   render() {
     /*let filteredMemes = this.state.items.filter((item) => {
-      return item.name
-        .toLowerCase()
-        .includes(this.state.searchMeme.toLowerCase());
-    });
-    console.log(filteredMemes);*/
-    let { items } = this.state.filteredItems;
-    /*if (!isLoaded) {
-      return <div>Loading...</div>;
-    } */
+        return item.name
+          .toLowerCase()
+          .includes(this.state.searchMeme.toLowerCase());
+      });
+      console.log(filteredMemes);
+  let { items } = this.state.filteredItems;
+   if (!isLoaded) {
+        return <div>Loading...</div>;
+      } */
+
+    let memes = [];
+    memes =
+      this.state.filteredItems.length > 0 ? (
+        this.state.filteredItems.map((item) => (
+          <img key={item.id} src={item.url} alt="" />
+        ))
+      ) : (
+        <p>No memes found</p>
+      );
+
     return (
       <div className="Search">
         <Nav />
@@ -75,18 +92,13 @@ export default class Search extends Component {
             // value={this.state.searchMeme}
             // onChange={this.handleInputChange}
             className="search-input"
-            required
           />
           <button type="submit" className="submit-btn">
             Search
           </button>
         </form>
 
-        <div className="gallery">
-          {this.state.filteredItems.map((item) => (
-            <img key={item.id} src={item.url} alt="" />
-          ))}
-        </div>
+        <div className="gallery">{memes}</div>
       </div>
     );
   }
