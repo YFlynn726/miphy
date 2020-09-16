@@ -59,14 +59,11 @@ export default class Search extends Component {
       return (
         <div className="Search">
           <h2>Search Meme</h2>
-          <form
-            className="search-form"
-            onSubmit={(event) => this.handleSubmit(event)}
-          >
+          <form className="search-form" onSubmit={this.handleSubmit}>
             <input
               type="text"
               name="search"
-              // value={this.state.searchMeme}
+              value={this.state.searchMeme}
               onChange={this.handleInputChange}
               className="search-input"
             />
@@ -80,7 +77,7 @@ export default class Search extends Component {
               <img key={item.id} src={item.url} alt="" />
             ))}
           </div>
-          <div>
+          <div className="App">
             {filteredMemes.map((item) => (
               <img key={item.id} src={item.url} alt="" />
             ))}
