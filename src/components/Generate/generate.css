@@ -1,3 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+
+.generate {
+}
 #target {
+  width: 100%;
+}
+.outputContent {
+  position: relative;
+  margin: 0 auto;
   width: 80%;
+  text-align: center;
+}
+.memeText {
+  font-family: "Anton", sans-serif;
+  margin: 0;
+  color: #fff;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+}
+.top {
+  position: absolute;
+  top: 15px;
+  left: 35%;
+}
+.bottom {
+  position: absolute;
+  bottom: 15px;
+  left: 35%;
 }
