@@ -1,9 +1,12 @@
 import React, { Component } from "react";
+import Nav from "../Nav/Nav";
 import "./generate.css";
 
 export default class Generate extends Component {
   state = {
     selectedFile: null,
+    upperText: "",
+    lowerText: "",
   };
 
   uploadHandler = (event) => {
@@ -16,9 +19,17 @@ export default class Generate extends Component {
     }
   };
 
+  changeTopInput(upperText) {
+    this.setState({ upperText });
+  }
+  changeBottomInput(lowerText) {
+    this.setState({ lowerText });
+  }
+
   render() {
     return (
       <main className="generate">
+        <Nav />
         <section>
           <h1>Generate Component</h1>
 
@@ -28,16 +39,35 @@ export default class Generate extends Component {
             className="fileType"
             id="loadedImage"
           />
+
           <br />
           <label htmlFor="topText">Enter top text</label>
           <br />
-          <input type="text" id="topText" />
+          <input
+            type="text"
+            id="topText"
+            placeholder="Enter top text"
+            onChange={(e) => this.changeTopInput(e.currentTarget.value)}
+          />
           <br />
-          <img id="target" alt="" src={this.state.selectedFile}></img>
+          <div className="outputContent">
+            <img
+              id="target"
+              alt="userImage"
+              src={this.state.selectedFile}
+            ></img>
+            <h2 className="memeText top">{this.state.upperText}</h2>
+            <h2 className="memeText bottom">{this.state.lowerText}</h2>
+          </div>
           <br />
           <label htmlFor="bottomText">Enter bottom text</label>
           <br />
-          <input type="text" id="bottomText" />
+          <input
+            type="text"
+            id="bottomText"
+            placeholder="Enter bottom text"
+            onChange={(e) => this.changeBottomInput(e.currentTarget.value)}
+          />
         </section>
       </main>
     );

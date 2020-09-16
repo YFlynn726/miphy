@@ -1,29 +1,13 @@
 import React, { Component } from "react";
-//import "../App.css";
+import Nav from "../Nav/Nav";
+import "./Search.css";
 
 export default class Search extends Component {
-  constructor() {
-    super();
-    this.state = {
-      items: [],
-      isLoaded: false,
-      searchMeme: "",
-    };
-  }
-
-  handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(event.target.value);
-    console.log(this.state.searchMeme);
-    // const { searchedText } = event.target;
-    // console.log(searchedText.value);
-  };
-
-  handleInputChange = (event) => {
-    this.setState({
-      searchMeme: event.target.value,
-    });
-    console.log(event.target.value);
+  state = {
+    items: [],
+    isLoaded: false,
+    searchMeme: "",
+    filteredItems: [],
   };
 
   componentDidMount() {
@@ -38,88 +22,61 @@ export default class Search extends Component {
         this.setState({
           isLoaded: true,
           items: data.data.memes,
+          filteredItems: data.data.memes,
         });
-        console.log(this.state.items);
+        console.log(this.state.filteredItems);
       })
       .catch((error) => {
         console.log("Request failure: ", error);
       });
   }
-  render() {
-    let filteredMemes = this.state.items.filter((item) => {
-      return item.name
-        .toLowerCase()
-        .includes(this.state.searchMeme.toLowerCase());
-    });
-    console.log(filteredMemes);
-    let { items, isLoaded } = this.state;
-    if (!isLoaded) {
-      return <div>Loading...</div>;
-    } else {
-      return (
-        <div className="Search">
-          <h2>Search Meme</h2>
-          <form className="search-form" onSubmit={this.handleSubmit}>
-            <input
-              type="text"
-              name="search"
-              value={this.state.searchMeme}
-              onChange={this.handleInputChange}
-              className="search-input"
-            />
-            <button type="submit" className="submit-btn">
-              Search
-            </button>
-          </form>
 
-          <div className="gallery">
-            {items.map((item) => (
-              <img key={item.id} src={item.url} alt="" />
-            ))}
-          </div>
-          <div className="App">
-            {filteredMemes.map((item) => (
-              <img key={item.id} src={item.url} alt="" />
-            ))}
-          </div>
-        </div>
-      );
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.setState({
+      filteredItems: this.state.items,
+    });
+    const { search } = event.target;
+    console.log(search.value);
+    if (search.value.length > 0) {
+      let filteredMemes = this.state.items.filter((item) => {
+        return item.name.toLowerCase().includes(search.value.toLowerCase());
+      });
+      console.log(filteredMemes);
+      this.setState({
+        filteredItems: filteredMemes,
+      });
     }
+    console.log(this.state.filteredItems);
+  };
+
+  render() {
+    let memes = [];
+    memes =
+      this.state.filteredItems.length > 0 ? (
+        this.state.filteredItems.map((item) => (
+          <img key={item.id} src={item.url} alt="" />
+        ))
+      ) : (
+        <p>No memes found</p>
+      );
+
+    return (
+      <div className="Search">
+        <Nav />
+        <h2 className="title">Search A Meme</h2>
+        <form
+          className="search-form"
+          onSubmit={(event) => this.handleSubmit(event)}
+        >
+          <input type="text" name="search" className="search-input" />
+          <button type="submit" className="submit-btn">
+            <i className="fa fa-search" aria-hidden="true"></i>
+          </button>
+        </form>
+
+        <div className="gallery">{memes}</div>
+      </div>
+    );
   }
 }
-
-// function search() {
-//   const gallery = document.querySelector(".gallery");
-//   const searchInput = document.querySelector(".search-input");
-//   const submitButton = document.querySelector(".submit-btn");
-//   let searchValue;
-
-//   async function memeImages() {
-//     const dataFetch = await fetch("https://api.imgflip.com/get_memes", {
-//       method: "GET",
-//       headers: {
-//         Accept: "application/json",
-//       },
-//     });
-//     const data = await dataFetch.json();
-//     console.log(data);
-//     data.data.memes.forEach((meme) => {
-//       console.log(meme);
-//     });
-//   }
-//   memeImages();
-//   return (
-//     <div className="App">
-//       <h2>Miphy</h2>
-//       <form className="search-form">
-//         <input type="text" name="search" className="search-input" />
-//         <button type="submit" className="submit-btn">
-//           Search
-//         </button>
-//       </form>
-//       <main>
-//         <div className="gallery"></div>
-//       </main>
-//     </div>
-//   );
-// }

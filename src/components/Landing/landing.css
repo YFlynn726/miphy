@@ -10,7 +10,60 @@
   flex-direction: column;
 }
 
-.main-landing h1,
-.main-landing h2 {
-  color: white;
+.main-landing nav {
+  background-color: rgba(255, 255, 255, 0.5);
+  min-height: 8vh;
+}
+
+.main-landing nav a {
+  color: #00612f;
+}
+
+.main-landing .Footer {
+  text-align: right;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.main-landing .Footer a {
+  color: black;
+}
+
+.main-landing .landingBox-content {
+  display: flex;
+  flex: 1;
+  margin-top: 300px;
+  max-height: 60px;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding-right: 10px;
+  padding-left: 10px;
+  max-height: 60px;
+  margin-top: 230px;
+}
+
+.intro {
+  font-family: Museo Sans Rounded, Arial, sans-serif;
+}
+
+.intro p,
+.main-landing .landingBox-content p {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: sans-serif;
+  margin-bottom: 5px !important;
+}
+.main-landing .intro {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin: 30px;
+  background-color: rgba(255, 255, 255, 0.8);
+  max-height: 60px;
+}
+
+@media only screen and (min-width: 768px) {
+  .intro p {
+    font-size: 20px;
+  }
 }

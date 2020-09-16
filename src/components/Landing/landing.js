@@ -1,19 +1,20 @@
 import React, { Component } from "react";
 import Footer from "../Footer/footer";
+import Nav from "../Nav/Nav";
 import "./landing.css";
 
 class Landing extends Component {
   render() {
     return (
       <div role="main" className="main-landing">
+        <Nav />
         <div className="intro">
-          <h1>Looking for memes?</h1>
+          <p>Looking for memes?</p>
         </div>
-        <section className="landingBox">
-          <div className="landingBox-content">
-            <h2>Search or Create your own memes</h2>{" "}
-          </div>
-        </section>
+        <div className="landingBox-content">
+          <p>Search or Create your own memes</p>{" "}
+        </div>
+
         <Footer />
       </div>
     );
