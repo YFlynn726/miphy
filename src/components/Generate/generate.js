@@ -49,7 +49,11 @@ export default class Generate extends Component {
           />
           <br />
           <div className="outputContent">
-            <img id="target" alt="" src={this.state.selectedFile}></img>
+            <img
+              id="target"
+              alt="userImage"
+              src={this.state.selectedFile}
+            ></img>
             <h2 className="memeText top">{this.state.upperText}</h2>
             <h2 className="memeText bottom">{this.state.lowerText}</h2>
           </div>
