@@ -30,9 +30,7 @@ export default class Generate extends Component {
     return (
       <main className="generate">
         <Nav />
-        <section>
-          <h1>Generate Component</h1>
-
+        <section className="generateSection">
           <input
             type="file"
             onChange={this.uploadHandler}
