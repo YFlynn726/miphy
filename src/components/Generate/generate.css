@@ -6,13 +6,15 @@
   padding-top: 2em;
 }
 #target {
-  width: 50%;
+  width: 100%;
 }
 .outputContent {
   position: relative;
   margin: 1em auto;
-  width: 80%;
+  width: 50%;
   text-align: center;
+}
+#genedMeme {
   display: flex;
   justify-content: center;
 }
@@ -37,6 +39,6 @@
 
 @media only screen and (min-width: 500px) {
   #target {
-    width: 40%;
+    width: 100%;
   }
 }

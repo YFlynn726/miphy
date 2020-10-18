@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Nav from "../Nav/Nav";
 import "./generate.css";
+import domtoimage from "dom-to-image";
 
 export default class Generate extends Component {
   state = {
@@ -26,6 +27,17 @@ export default class Generate extends Component {
     this.setState({ lowerText });
   }
 
+  handleDownload() {
+    domtoimage
+      .toJpeg(document.getElementById("genedMeme"), { quality: 0.95 })
+      .then(function (dataUrl) {
+        let link = document.createElement("a");
+        link.download = "generated-meme.jpg";
+        link.href = dataUrl;
+        link.click();
+      });
+  }
+
   render() {
     return (
       <main className="generate">
@@ -49,13 +61,15 @@ export default class Generate extends Component {
           />
           <br />
           <div className="outputContent">
-            <img
-              id="target"
-              alt="userImage"
-              src={this.state.selectedFile}
-            ></img>
-            <h2 className="memeText top">{this.state.upperText}</h2>
-            <h2 className="memeText bottom">{this.state.lowerText}</h2>
+            <div id="genedMeme">
+              <img
+                id="target"
+                alt="userImage"
+                src={this.state.selectedFile}
+              ></img>
+              <h2 className="memeText top">{this.state.upperText}</h2>
+              <h2 className="memeText bottom">{this.state.lowerText}</h2>
+            </div>
           </div>
           <br />
           <label htmlFor="bottomText">Enter bottom text</label>
@@ -66,6 +80,9 @@ export default class Generate extends Component {
             placeholder="Enter bottom text"
             onChange={(e) => this.changeBottomInput(e.currentTarget.value)}
           />
+          <button type="button" onClick={this.handleDownload}>
+            Save
+          </button>
         </section>
       </main>
     );
