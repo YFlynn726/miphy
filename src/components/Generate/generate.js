@@ -80,7 +80,12 @@ export default class Generate extends Component {
             placeholder="Enter bottom text"
             onChange={(e) => this.changeBottomInput(e.currentTarget.value)}
           />
-          <button type="button" onClick={this.handleDownload}>
+          <br />
+          <button
+            className="saveButton"
+            type="button"
+            onClick={this.handleDownload}
+          >
             Save
           </button>
         </section>
