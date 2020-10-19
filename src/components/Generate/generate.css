@@ -11,7 +11,7 @@
 .outputContent {
   position: relative;
   margin: 1em auto;
-  width: 50%;
+  width: 90%;
   text-align: center;
 }
 #genedMeme {
@@ -21,7 +21,7 @@
 .memeText {
   font-family: "Open Sans", sans-serif;
   font-weight: 800;
-  font-size: 2em;
+  font-size: 1.5em;
   margin: 0;
   color: #fff;
   -webkit-text-stroke-width: 2px;
@@ -36,12 +36,53 @@
   position: absolute;
   bottom: 1px;
 }
-.saveButton {
+.saveButton,
+.customUpload {
   margin-top: 20px;
+  padding: 15px;
+  width: 150px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #006400;
+  color: #fff;
+  -webkit-transition: background-color 0.2s ease-out;
+  -moz-transition: background-color 0.2s ease-out;
+  -o-transition: background-color 0.2s ease-out;
+  transition: background-color 0.2s ease-out;
+}
+input[type="file"] {
+  display: none;
+}
+.saveButton:hover,
+.customUpload:hover {
+  background-color: #e9f7ec;
+  color: #000;
+}
+label {
+  margin-top: 10px;
+}
+input {
+  margin: 15px;
+}
+
+#topText,
+#bottomText {
+  width: 250px;
+  padding: 15px;
+  border-radius: 5px;
+  border-style: none;
+  background-color: #e9f7ec;
 }
 
 @media only screen and (min-width: 500px) {
   #target {
     width: 100%;
+  }
+  .outputContent {
+    width: 50%;
+  }
+  .memeText {
+    font-size: 2em;
   }
 }

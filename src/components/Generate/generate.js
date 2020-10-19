@@ -43,6 +43,10 @@ export default class Generate extends Component {
       <main className="generate">
         <Nav />
         <section className="generateSection">
+          <label className="customUpload" htmlFor="loadedImage">
+            Upload
+          </label>
+          <br />
           <input
             type="file"
             onChange={this.uploadHandler}
@@ -51,7 +55,7 @@ export default class Generate extends Component {
           />
 
           <br />
-          <label htmlFor="topText">Enter top text</label>
+          <label htmlFor="topText">Enter top text:</label>
           <br />
           <input
             type="text"
@@ -62,17 +66,13 @@ export default class Generate extends Component {
           <br />
           <div className="outputContent">
             <div id="genedMeme">
-              <img
-                id="target"
-                alt="userImage"
-                src={this.state.selectedFile}
-              ></img>
+              <img id="target" src={this.state.selectedFile}></img>
               <h2 className="memeText top">{this.state.upperText}</h2>
               <h2 className="memeText bottom">{this.state.lowerText}</h2>
             </div>
           </div>
           <br />
-          <label htmlFor="bottomText">Enter bottom text</label>
+          <label htmlFor="bottomText">Enter bottom text:</label>
           <br />
           <input
             type="text"
@@ -86,7 +86,7 @@ export default class Generate extends Component {
             type="button"
             onClick={this.handleDownload}
           >
-            Save
+            Download
           </button>
         </section>
       </main>
