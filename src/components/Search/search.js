@@ -52,10 +52,13 @@ export default class Search extends Component {
 
   render() {
     let memes = [];
+
     memes =
       this.state.filteredItems.length > 0 ? (
         this.state.filteredItems.map((item) => (
-          <img key={item.id} src={item.url} alt="" />
+          <div className="img-wrap" key={item.id}>
+            <img key={item.id} src={item.url} alt="" />
+          </div>
         ))
       ) : (
         <p>No memes found</p>
@@ -75,7 +78,7 @@ export default class Search extends Component {
           </button>
         </form>
 
-        <div className="gallery">{memes}</div>
+        <div className="img-grid">{memes}</div>
       </div>
     );
   }
