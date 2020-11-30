@@ -1,3 +1,12 @@
+# Miphy
+
+This meme generating app was created as a group project for jr developers.  This app was created with a team of 3 developers who worked great together.  
+
+*Technologies used: React, RESTful API, JavaScript, CSS*
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
